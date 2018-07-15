@@ -1,0 +1,10 @@
+import numpy as np 
+import matplotlib.pyplot as plt
+from scipy.cluster.hierarchy import linkage, dendrogram
+x = np.genfromtxt('Wholesale customers data.csv', dtype=int, delimiter=',', comments='#')  
+#x=np.array([[1,1],[2,2],[3.3,3.3],[5,5],[8,8]])
+plt.scatter(x[:,6],x[:,7],s=None) 
+linkage_matrix= linkage(x,"complete")
+dendogarm = dendrogram(linkage_matrix)
+plt.title("Hierarchial Clustering")
+plt.show()
